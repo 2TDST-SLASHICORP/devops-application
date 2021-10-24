@@ -1,4 +1,4 @@
-# devops-3sprint
+# devops-4sprint
 
 ### ATENÇÃO!
 
@@ -159,8 +159,8 @@ Após realizar a instalação, baixe o repositório:
 (usaremos o nosso neste exemplo, em caso de fork copio a URI do seu)
 
 ```sh
-git clone https://github.com/2TDST-CHALLENGE/devops-3sprint.git
-cd devops-3sprint
+git clone https://github.com/2TDST-SLASHICORP/devops-application.git
+cd devops-application
 ```
 
 Para iniciar, use o seguinte comando para isso:
