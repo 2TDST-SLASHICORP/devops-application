@@ -1,0 +1,63 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Pesquisar por nome"
+        [(ngModel)]="nome"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchNome()"
+        >
+          Pesquisar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Lista de Agencias</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let agencia of agencias; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveAgencia(agencia, i)"
+      >
+        {{ agencia.nome }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllAgencias()">
+      Excluir Todas
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentAgencia">
+      <h4>Agencia</h4>
+      <div>
+        <label><strong>Nome:</strong></label> {{ currentAgencia.nome }}
+      </div>
+      <div>
+        <label><strong>Endereço:</strong></label>
+        {{ currentAgencia.endereco }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentAgencia.published ? "Published" : "Pending" }}
+      </div>
+
+      <a class="badge badge-warning btn-success" routerLink="/agencias/{{ currentAgencia.id }}">
+        Edit
+      </a>
+    </div>
+
+    <div *ngIf="!currentAgencia">
+      <br />
+      <p>Por favor, selecione a Agencia...</p>
+    </div>
+  </div>
+</div>

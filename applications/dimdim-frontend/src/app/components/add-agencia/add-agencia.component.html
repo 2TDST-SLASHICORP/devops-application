@@ -1,0 +1,35 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          required
+          [(ngModel)]="agencia.nome"
+          name="nome"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="endereco">Endereco</label>
+        <input
+          class="form-control"
+          id="endereco"
+          required
+          [(ngModel)]="agencia.endereco"
+          name="endereco"
+        />
+      </div>
+
+      <button (click)="saveAgencia()" class="btn btn-success">Adicionar</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Nova agencia DimDim Bank cadastrada com sucesso!</h4>
+      <button class="btn btn-success" (click)="newAgencia()">Adicionar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div>
+  <div *ngIf="currentAgencia.id" class="edit-form">
+    <h4>Agencia</h4>
+    <form>
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          [(ngModel)]="currentAgencia.nome"
+          name="nome"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Endereco</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentAgencia.endereco"
+          name="nome"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentAgencia.published ? "Published" : "Pending" }}
+      </div>
+    </form>
+
+    <button
+      class="badge badge-primary mr-2 btn-secondary"
+      *ngIf="currentAgencia.published"
+      (click)="updatePublished(false)"
+    >
+      UnPublish
+    </button>
+    <button
+      *ngIf="!currentAgencia.published"
+      class="badge badge-primary mr-2 btn-success"
+      (click)="updatePublished(true)"
+    >
+      Publish
+    </button>
+
+    <button class="badge badge-danger mr-2 btn-danger" (click)="deleteAgencia()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2 btn-info"
+      (click)="updateAgencia()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentAgencia.id">
+    <br />
+    <p>Nao foi possivel acessar esta Agencia...</p>
+  </div>
+</div>

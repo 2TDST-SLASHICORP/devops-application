@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  dimdim-frontend:
+    build: .
+    restart: on-failure
+    external_links:
+      - dimdim-backend
+    ports:
+      - 8081:80
+    stdin_open: true
+    tty: true
